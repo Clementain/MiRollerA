@@ -48,28 +48,10 @@ class MainActivity : AppCompatActivity() {
             ).show()
 
 
-            val idImagenAl = when (al) {
-                1 -> R.drawable.dice_1
-                2 -> R.drawable.dice_2
-                3 -> R.drawable.dice_3
-                4 -> R.drawable.dice_4
-                5 -> R.drawable.dice_5
-                6 -> R.drawable.dice_6
-                else -> R.drawable.empty_dice
-            }
 
-            val idImagenBl = when (bl) {
-                1 -> R.drawable.dice_1
-                2 -> R.drawable.dice_2
-                3 -> R.drawable.dice_3
-                4 -> R.drawable.dice_4
-                5 -> R.drawable.dice_5
-                6 -> R.drawable.dice_6
-                else -> R.drawable.empty_dice
-            }
 
-            img1.setImageResource(idImagenAl)
-            img2.setImageResource(idImagenBl)
+            img1.setImageResource(imageRoller(al))
+            img2.setImageResource(imageRoller(bl))
 
             lbl.text = (al+bl).toString()
 
@@ -78,6 +60,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun diceRoller(): Int {
         return (1..6).random()
+    }
+    private fun imageRoller(n:Int):Int{
+        return when (n) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            6 -> R.drawable.dice_6
+            else -> R.drawable.empty_dice
+        }
     }
 
 }
