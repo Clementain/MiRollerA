@@ -25,14 +25,6 @@ class MainActivity : AppCompatActivity() {
         img1 = findViewById(R.id.imgRoller)
         img2 = findViewById(R.id.imgRoller2)
 
-        /*boton.setOnClickListener(
-            View.OnClickListener {
-                Toast.makeText(applicationContext,
-                    "Boton presionafdo",
-                    Toast.LENGTH_LONG
-                    ).show()
-            }
-        )*/
 
         img1.setImageDrawable(resources.getDrawable(R.drawable.dice_3))
         img2.setImageDrawable(resources.getDrawable(R.drawable.dice_5))
@@ -48,10 +40,8 @@ class MainActivity : AppCompatActivity() {
             ).show()
 
 
-
-
-            img1.setImageResource(imageRoller(al))
-            img2.setImageResource(imageRoller(bl))
+            img1.setImageResource(getRandomDiceImage(al))
+            img2.setImageResource(getRandomDiceImage(bl))
 
             lbl.text = (al+bl).toString()
 
@@ -61,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun diceRoller(): Int {
         return (1..6).random()
     }
-    private fun imageRoller(n:Int):Int{
+    private fun getRandomDiceImage(n:Int):Int{
         return when (n) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
